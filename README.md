@@ -3,3 +3,4 @@ Repository for Unix Assignment
 
 ## Initial Process for Data Inspection
 1.  Initial Process is primarily just setting things up.  Initializing the repository, connecting to the remote, and getting this README prepared while making this note.
+2.  Copied necessary data files and transpose program to repository.
