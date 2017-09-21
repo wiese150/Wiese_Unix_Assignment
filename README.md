@@ -15,3 +15,6 @@ We can also use du on these files, with -h to make them more easily readable, in
 4.  At this point, it's a good idea to get the number of columns with awk. For fang_et_al_genotypes.txt, this is 986.  snp_positions.txt has only 15 columns.
 
 Neither seems to have a header, so this looks to be accurate throughout.
+
+## Data Processing
+1.  First step is to create distinct maize and teosinate genotype files.  For maize, grep -E "ZMMIL|ZMMLR|ZMMMR" fang_et_al_genotypes.txt > maize_genotypes.txt should do the trick.  Teosinate uses ZMPBA|ZMPIL|ZMPJA.
