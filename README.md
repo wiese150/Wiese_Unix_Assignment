@@ -18,3 +18,5 @@ Neither seems to have a header, so this looks to be accurate throughout.
 
 ## Data Processing
 1.  First step is to create distinct maize and teosinate genotype files.  For maize, grep -E "ZMMIL|ZMMLR|ZMMMR" fang_et_al_genotypes.txt > maize_genotypes.txt should do the trick.  Teosinate uses ZMPBA|ZMPIL|ZMPJA.  These were added to the header from the original genotypes file (created itself in a separate file) using cat to create the final file for transposition.
+
+2.  Run transpose.awk on the maize and teosinte maize files, transferring the transposed data to new files.  Will need to then remove the first three lines of header from each using tail -n +4.
