@@ -23,9 +23,9 @@ Neither seems to have a header, so this looks to be accurate throughout.
 
 2.  Run transpose.awk on the maize and teosinte maize files, transferring the transposed data to new files.  Will need to then remove the first three lines of header from each using tail -n +4.
 
-3.  Sort the transposed files by the first column, as well as removing the header from and sorting snp_positions by snp_id.  Then cut out all columns from the sorted snp_positions file except for the first, third, and fourth - snp_id, chromosome, and position, respectively.
+3.  Sort (sort -k1,1) the transposed files by the first column, as well as removing the header from and sorting snp_positions by snp_id.  Then cut out all columns from the sorted snp_positions file except for the first, third, and fourth - snp_id, chromosome, and position, respectively.
 
-4.  Join the sorted transposed maize file with the cut snp positions file to create a maize dataset file, and do the same with the sorted transposed teosinate file with the cut snp positions file to create a teosinate data file.  This took me a little bit, because I didn't realize that I'd forgotten to force the join command to separate by tab instead of whitespace.
+4.  Join (join -1 1 -2 1 -t $'\t' filename1 filename2) the sorted transposed maize file with the cut snp positions file to create a maize dataset file, and do the same with the sorted transposed teosinate file with the cut snp positions file to create a teosinate data file.  This took me a little bit, because I didn't realize that I'd forgotten to force the join command to separate by tab instead of whitespace.
 
 5.  Create the individual chromosome files.  Start with the forward (increasing position) ones.  All it takes is a simple awk '$2 == n' filename.txt to select for the specific chromosomes, then sort based on number in the third column.  Then did the reverse (decreasing position value) ones in the same way.  After creating the decreasing position value files, used sed -i 's/?/-/g' filename to replace all instances of '?' in those with '-'.  After this, used grep to search for 'unknown' or 'multiple' in the maize and teosinte full data set files, and then create files containing only snps with unknown or multiple positions.
 
