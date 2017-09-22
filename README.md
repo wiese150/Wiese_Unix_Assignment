@@ -24,3 +24,5 @@ Neither seems to have a header, so this looks to be accurate throughout.
 3.  Sort the transposed files by the first column, as well as removing the header from and sorting snp_positions by snp_id.  Then cut out all columns from the sorted snp_positions file except for the first, third, and fourth - snp_id, chromosome, and position, respectively.
 
 4.  Join the sorted transposed maize file with the cut snp positions file to create a maize dataset file, and do the same with the sorted transposed teosinate file with the cut snp positions file to create a teosinate data file.  This took me a little bit, because I didn't realize that I'd forgotten to force the join command to separate by tab instead of whitespace.
+
+5.  Create the individual chromosome files.  Start with the forward ones.  All it takes is a simple awk '$2 == n' filename.txt to select for the specific chromosomes, then sort based on number in the third column.
