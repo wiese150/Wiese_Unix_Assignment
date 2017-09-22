@@ -17,4 +17,4 @@ We can also use du on these files, with -h to make them more easily readable, in
 Neither seems to have a header, so this looks to be accurate throughout.
 
 ## Data Processing
-1.  First step is to create distinct maize and teosinate genotype files.  For maize, grep -E "ZMMIL|ZMMLR|ZMMMR" fang_et_al_genotypes.txt > maize_genotypes.txt should do the trick.  Teosinate uses ZMPBA|ZMPIL|ZMPJA.
+1.  First step is to create distinct maize and teosinate genotype files.  For maize, grep -E "ZMMIL|ZMMLR|ZMMMR" fang_et_al_genotypes.txt > maize_genotypes.txt should do the trick.  Teosinate uses ZMPBA|ZMPIL|ZMPJA.  These were added to the header from the original genotypes file (created itself in a separate file) using cat to create the final file for transposition.
