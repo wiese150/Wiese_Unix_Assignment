@@ -20,3 +20,5 @@ Neither seems to have a header, so this looks to be accurate throughout.
 1.  First step is to create distinct maize and teosinate genotype files.  For maize, grep -E "ZMMIL|ZMMLR|ZMMMR" fang_et_al_genotypes.txt > maize_genotypes.txt should do the trick.  Teosinate uses ZMPBA|ZMPIL|ZMPJA.  These were added to the header from the original genotypes file (created itself in a separate file) using cat to create the final file for transposition.
 
 2.  Run transpose.awk on the maize and teosinte maize files, transferring the transposed data to new files.  Will need to then remove the first three lines of header from each using tail -n +4.
+
+3.  Sort the transposed files, as well as removing the header from and sorting snp_positions.  Then cut out all columns from the sorted snp_positions file except for the first, third, and fourth - snp_id, chromosome, and position, respectively. 
