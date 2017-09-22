@@ -25,4 +25,4 @@ Neither seems to have a header, so this looks to be accurate throughout.
 
 4.  Join the sorted transposed maize file with the cut snp positions file to create a maize dataset file, and do the same with the sorted transposed teosinate file with the cut snp positions file to create a teosinate data file.  This took me a little bit, because I didn't realize that I'd forgotten to force the join command to separate by tab instead of whitespace.
 
-5.  Create the individual chromosome files.  Start with the forward ones.  All it takes is a simple awk '$2 == n' filename.txt to select for the specific chromosomes, then sort based on number in the third column.
+5.  Create the individual chromosome files.  Start with the forward (increasing position) ones.  All it takes is a simple awk '$2 == n' filename.txt to select for the specific chromosomes, then sort based on number in the third column.  Then did the reverse (decreasing position value) ones in the same way.  After creating the decreasing position value files, used sed -i 's/?/-/g' filename to replace all instances of '?' in those with '-'.
